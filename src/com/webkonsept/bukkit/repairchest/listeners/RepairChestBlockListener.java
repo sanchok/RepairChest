@@ -52,7 +52,7 @@ public class RepairChestBlockListener implements Listener {
 				else {
                     BlockFace face = plugin.chestList.findChest(event.getBlock().getData());
                     Block chestCandidate = event.getBlock().getRelative(face);
-                    if (chestCandidate.getType().equals(Material.CHEST)){
+                    if (chestCandidate.getType().equals(Material.TRAPPEDCHEST)){
                         if (plugin.permit(player, "repairchest.create")){
                             player.sendMessage(plugin.cfg().tr("chestAuthorized"));
                         }
@@ -79,7 +79,7 @@ public class RepairChestBlockListener implements Listener {
 					chestBlock = signBlock.getRelative(chestSide);
 				}
 				
-				if (chestBlock != null && chestBlock.getType().equals(Material.CHEST)){
+				if (chestBlock != null && chestBlock.getType().equals(Material.TRAPPEDCHEST)){
 					byte newSignData = plugin.chestList.signTranslate(data);
 					signBlock.setType(Material.WALL_SIGN);
 					signBlock.setData(newSignData);
